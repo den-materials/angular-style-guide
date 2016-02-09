@@ -118,19 +118,22 @@ function PostsController() {
 
 Use `mapController` rather than `map`. Use `phoneService` rather than `phone`
 
-### Use camel case for controllers, directives, etc.
+### Use DromedaryCase for controllers, directives, etc.
 
-Some style guides use DromedaryCase or UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  Students can use the syntax they're already used to.
+Some style guides use DromedaryCase or UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  While not absolutely necessary, consistency is clearer.
 
 Avoid:
 ```
-function LibraryController() { }
+function libraryController() { }
+function authorDirective() { }
 ```
 
 Prefer:
 ```
-function libraryController() { }
+function LibraryController() { }
+function AuthorDirective() { }
 ```
+
 ### use long-form names for controllers and other components
 
 Use `mapController` not `mapCtrl`.
