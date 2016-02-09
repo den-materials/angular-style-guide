@@ -128,7 +128,7 @@ The syntax should be `{feature}.{component}.js` or `logger.service.js`, `library
 
 
 <!-- DIRECTIVES -->
-# When talking about directives
+# When working with custom directives
 Use these guidelines when introducing and working with directives.
 
 ### Directives not controllers should manipulate the DOM.
@@ -137,37 +137,81 @@ In general DOM manipulations should be done in directives not controllers or ser
 
 ### Controller-as in Directives
 
-Remember to specify `controllerAs` in directives.  It's also extremely common to use `vm` as the name in this case.
+Remember to specify `controllerAs` in directives.  
+It's also extremely common to use `vm` as the `controllerAs` name; _using another name may be disambiguating_ for students.
 
 Avoid:
 ```js
-function dragUpload () {
-  return {
-    controller: function ($scope) {
+function dragUploadDirective () {
 
-    }
+  var directive = {
+    controller: uploadController,
+    scope: {
+     city: '@'
+    },
+    template: '<div>{{prop}}</div>'
   };
+
+  return directive;
 }
-angular
-  .module('app')
-  .directive('dragUpload', dragUpload);
+
 ```
 Prefer:
 ```js
-function dragUpload () {
-  return {
-    controllerAs: 'vm',
-    controller: function () {
-
-    }
+function dragUploadDirective () {
+  var directive = {
+    controllerAs: 'uploads', // note: often called 'vm' in the wild
+    controller: uploadController,
+    scope: {
+     city: '@'
+    },
+    template: '<div>{{uploads.prop}}</div>'
   };
+
+  return directive;
 }
-angular
-  .module('app')
-  .directive('dragUpload', dragUpload);
 ```
 
 [code from](https://github.com/toddmotto/angular-styleguide#directives)
+
+### Don't in-line functions in directives
+
+Controllers should always be outside the directive.  One-liners may be OK, but in general separate functions.  
+
+
+Avoid:
+```js
+function flowDirective() {
+  var directive = {
+    controller: ['$http', function($http) {
+      // ...
+    }],
+    controllerAs: 'vm',
+    ....
+  }
+
+    return directive;
+  }
+}
+```
+
+
+Prefer:
+```js
+function flowDirective() {
+  var directive = {
+    controller: flowSourceController,
+    controllerAs: 'vm',
+    ....
+  }
+
+    return directive;
+  }
+}
+
+flowSourceController.$inject = ['$http']
+function flowSourceController($http) { }
+```
 
 ### Don't ng-* prefix directives.
 
@@ -179,8 +223,24 @@ Avoid:
 ```
 
 Prefer:
-```
+```js
 <div drag-upload>
+```
+
+
+### Custom directive elements do not need data-
+Custom elements prefixed with `data-` won't pass validators.  (data- only applies to attributes.)
+
+Note: All custom elements **must** contain a dash.
+
+Avoid:
+```js
+<data-fancy-calendar>
+```
+
+Prefer:
+```js
+<fancy-calendar>
 ```
 
 
