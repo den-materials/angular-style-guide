@@ -15,11 +15,11 @@ Use `data-` prefixed attributes instead of raw angular attributes/directives.  T
 
 Avoid:
 ```html
- <div ng-controller="MainController">
+ <div ng-controller="MainController as main">
 ```
 Recommended:
 ```html
- <div data-ng-controller="MainController">
+ <div data-ng-controller="MainController as main">
 ```
 
 ### controller as syntax
@@ -71,8 +71,8 @@ function SomeFactory () {
 }
  ```
 
-### use dot chaining to build the app rather than repetition of an app variable
-In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest.
+### Use dot chaining to build the app rather than repetition of an app variable
+In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest.  
 
 Avoid:
 ```js
@@ -91,7 +91,24 @@ angular
   .factory('SomeFactory', SomeFactory);
 ```
 
+### Capture `this` in a `vm` or other variable in controllers
 
+The context of `this` could be changed in a function within a controller.  Capturing in another name avoids this issue.  Note how this rule works with controller-as.  
+While many students will never run into an issue using just `this` in their controllers; this rule is trivial and might help them on projects.
+
+Avoid:
+```js
+function PostsController() {
+    this.title = 'Some Title';
+}
+```
+Prefer:
+```js
+function PostsController() {
+    var vm = this;
+    vm.title = 'Some Title';
+}
+```
 
 
 <!-- NAMING -->
@@ -270,22 +287,3 @@ Since we're using controller-as and `this` in our controllers, `$scope` will onl
 
 > Note: when using $scope one should always pass objects, not scalars.
 > Use `$scope.obj = {}` rather than `$scope.foo = 'adsf'`
-
-### capture `this` in a `vm` or other variable in controllers
-
-Context of `this` could be changed in a function within a controller.  Capturing in another name avoids this issue.  Note how this rule works with controller-as.  
-
-Avoid:
-```js
-function PostsController() {
-    this.title = 'Some Title';
-}
-```
-Prefer:
-```js
-function PostsController() {
-    var vm = this;
-    vm.title = 'Some Title';
-}
-```
-> Note: We could use this rule immediately with likely little additional trouble. [discuss](https://github.com/tgaff/angular_style_guide/issues/2)
