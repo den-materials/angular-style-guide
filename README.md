@@ -335,7 +335,8 @@ function PhoneController($location, $routeParams) {...}
 
 > For a comparison see the [official angular tutorial](https://docs.angularjs.org/tutorial/step_05)
 
-### Use gulp or grunt with MEAN stack, use asset-pipeline with Rails.
+
+#### Consider using `ng-strict-di` with `$inject`
 
 If you're following the above use of `$inject` ng-annotate is unnecessary.  However, you should consider using `ng-strict-di` to alert you to missing annotations.  [Reference](https://docs.angularjs.org/api/ng/directive/ngApp)
 
@@ -344,7 +345,6 @@ Prefer:
 ```js
 <div ng-app="ngAppStrictDemo" ng-strict-di>
 ```
-
 
 
 
