@@ -269,7 +269,7 @@ Use these guidelines when introducing factories and services.
 
 ### Factories vs. Services
 
-Use Factories.  This conforms with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide#style-y040).  
+Use Factories.  This conforms with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040).  
 Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.
 
 > It should be noted that Services are closer to the way we teach controllers and might therefore be easier for students.  An argument could be made for flipping this rule as long as it's done consistently.  
@@ -277,6 +277,7 @@ Services and Factories are exceedingly similar and the differences are very tric
 Service Pattern - Avoid:
 
 ```js
+// service
 function someService(){
 	this.doSomething = function(){
 		//…
@@ -285,7 +286,9 @@ function someService(){
 ```
 
 Factory Pattern - Prefer:
+
 ```js
+// factory
 function someFactory(){
 	var dataObj = {};
 	dataObj.doSomething = function(){
@@ -305,11 +308,12 @@ Use these rules when working with MEAN or Rails+Angular stacks or anywhere else 
 
 ### Use $inject vs. inline annotation for dependency injection
 
-Use $inject vs. inline annotation.  
+Use `$inject` vs. inline annotation.  
 
 This has better readability and lower likelihood of syntax errors.  Try to keep the `$inject` call near the function it refers to.
 
 Avoid:
+
 ```js
 angular
   .module('app')
@@ -317,7 +321,9 @@ angular
 
 function PhoneController($location, $routeParams) {...}
 ```
+
 Prefer:
+
 ```js
 angular
   .module('app')
@@ -334,6 +340,7 @@ function PhoneController($location, $routeParams) {...}
 If you're following the above use of `$inject` ng-annotate is unnecessary.  However, you should consider using `ng-strict-di` to alert you to missing annotations.  [Reference](https://docs.angularjs.org/api/ng/directive/ngApp)
 
 Prefer:
+
 ```js
 <div ng-app="ngAppStrictDemo" ng-strict-di>
 ```
