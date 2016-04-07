@@ -14,10 +14,12 @@ These guidelines are suggested for all code given to students.
 Use `data-` prefixed attributes instead of raw angular attributes/directives.  These pass HTML validators.
 
 Avoid:
+
 ```html
  <div ng-controller="MainController as main">
 ```
 Recommended:
+
 ```html
  <div data-ng-controller="MainController as main">
 ```
@@ -27,6 +29,7 @@ Recommended:
 Use Controller as syntax, which promotes the demystifying use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
 
 Avoid:
+
 ```html
 <div ng-controller="CustomerController">
     {{ name }}
@@ -34,6 +37,7 @@ Avoid:
 ```
 
 Recommended:
+
 ```html
 <div ng-controller="CustomerController as customer">
     {{ customer.name }}
@@ -44,6 +48,7 @@ Recommended:
 Declare named functions for controllers and other components.
 
 Avoid:
+
 ```js
 angular
   .module('app', [])
@@ -56,6 +61,7 @@ angular
 ```
 
 Recommended:
+
 ```js
 angular
   .module('app', [])
@@ -75,6 +81,7 @@ function SomeFactory () {
 In general multi-line dot-chaining is more prone to error, but since we're also avoiding in-line call-backs, the issue should be greatly reduced and overall readability should remain high.  This also follows what other style-guides suggest.  
 
 Avoid:
+
 ```js
 var app = angular.module('app', []);
 app.controller('MainController', function() {
@@ -84,6 +91,7 @@ app.factory('SomeFactory', function() {
 ```
 
 Recommended:
+
 ```js
 angular
   .module('app', [])
@@ -97,12 +105,15 @@ The context of `this` could be changed in a function within a controller.  Captu
 While many students will never run into an issue using just `this` in their controllers; this rule is trivial and might help them on projects.
 
 Avoid:
+
 ```js
 function PostsController() {
     this.title = 'Some Title';
 }
 ```
+
 Prefer:
+
 ```js
 function PostsController() {
     var vm = this;
@@ -123,12 +134,14 @@ Use `mapController` rather than `map`. Use `phoneService` rather than `phone`
 Some style guides use UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  While not absolutely necessary, being consistent about this keeps it clear.
 
 Avoid:
+
 ```
 function libraryController() { }
 function authorDirective() { }
 ```
 
 Prefer:
+
 ```
 function LibraryController() { }
 function AuthorDirective() { }
@@ -161,6 +174,7 @@ Remember to specify `controllerAs` in directives.
 It's also extremely common to use `vm` as the `controllerAs` name; _using another name may be disambiguating_ for students.
 
 Avoid:
+
 ```js
 function dragUploadDirective () {
 
@@ -176,7 +190,9 @@ function dragUploadDirective () {
 }
 
 ```
+
 Prefer:
+
 ```js
 function dragUploadDirective () {
   var directive = {
@@ -200,6 +216,7 @@ Controllers should always be outside the directive.  One-liners may be OK, but i
 
 
 Avoid:
+
 ```js
 function flowDirective() {
   var directive = {
@@ -217,6 +234,7 @@ function flowDirective() {
 
 
 Prefer:
+
 ```js
 function flowDirective() {
   var directive = {
@@ -238,11 +256,13 @@ function flowSourceController($http) { }
 This could conflict with newer versions.
 
 Avoid:
+
 ```js
 <div ng-upload>
 ```
 
 Prefer:
+
 ```js
 <div drag-upload>
 ```
@@ -254,11 +274,13 @@ Custom elements prefixed with `data-` won't pass validators.  (data- only applie
 Note: All custom elements **must** contain a dash.
 
 Avoid:
+
 ```js
 <data-fancy-calendar>
 ```
 
 Prefer:
+
 ```js
 <fancy-calendar>
 ```
