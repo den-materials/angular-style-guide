@@ -118,9 +118,9 @@ function PostsController() {
 
 Use `mapController` rather than `map`. Use `phoneService` rather than `phone`
 
-### Use DromedaryCase for controllers, directives, etc.
+### Use UpperCamelCase for controllers, directives, etc.
 
-Some style guides use DromedaryCase or UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  While not absolutely necessary, consistency is clearer.
+Some style guides use UpperCamelCase such as `DoAwesomeController`.  This is primarily in preparation for ES6 and classes.  While not absolutely necessary, being consistent about this keeps it clear.
 
 Avoid:
 ```
