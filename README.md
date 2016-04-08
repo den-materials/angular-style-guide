@@ -332,7 +332,9 @@ Use these rules when working with MEAN or Rails+Angular stacks or anywhere else 
 
 Use `$inject` vs. inline annotation.  
 
-This has better readability and lower likelihood of syntax errors.  Try to keep the `$inject` call near the function it refers to.
+This has better readability and lower likelihood of syntax errors.  Try to keep the `$inject` call directly above the function it refers to.  You can also align the functions parameters with the injected strings to make this more obvious.
+
+* This rule is a good one to follow from the beginning.  Students can get used to seeing it every time.
 
 Avoid:
 
@@ -354,6 +356,15 @@ angular
 PhoneController.$inject = ['$location', '$routeParams'];
 function PhoneController($location, $routeParams) {...}
 ```
+
+Also preferred:
+
+```js
+// aligned
+PhoneController.$inject = ['$location', '$routeParams'];
+function PhoneController(   $location,   $routeParams ) {...}
+```
+
 
 > For a comparison see the [official angular tutorial](https://docs.angularjs.org/tutorial/step_05)
 
