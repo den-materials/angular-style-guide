@@ -65,7 +65,7 @@ Recommended:
 ```js
 angular
   .module('app', [])
-  .controller('MainCtrl', MainCtrl)
+  .controller('MainController', MainController)
   .factory('SomeFactory', SomeFactory);
 
 
