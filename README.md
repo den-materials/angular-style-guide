@@ -276,23 +276,12 @@ Use these guidelines when introducing factories and services.
 
 ### Factories vs. Services
 
-Use Factories.  This conforms with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040).  
-Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.
+Use Services.  Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.  Services are closer to the way we teach controllers and should therefore be easier for students.  They also look similar to the way we teach constructors. :sunflower:
 
-> It should be noted that Services are closer to the way we teach controllers and might therefore be easier for students.  An argument could be made for flipping this rule as long as it's done consistently.  
+> This does not conform with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040). which recommends Factories over Services, but Services are more similar to our controller style.
 
-Service Pattern - Avoid:
 
-```js
-// service
-function someService(){
-	this.doSomething = function(){
-		//…
-	}
-}
-```
-
-Factory Pattern - Prefer:
+Factory Pattern - Avoid:
 
 ```js
 // factory
@@ -305,9 +294,22 @@ function someFactory(){
 }
 ```
 
-### Do not call Factories services
+Service Pattern - Prefer:
 
-Calling a Factory a Service or naming it `someService` is confusing.  The difference between the two is already [quite](http://stackoverflow.com/questions/14324451/angular-service-vs-angular-factory) [confusing](http://stackoverflow.com/questions/16596569/angularjs-what-is-a-factory) without mixing up the terminology.
+```js
+// service
+function someService(){
+	this.doSomething = function(){
+		//…
+	}
+}
+```
+
+
+### Do not call Factories services or Services factories
+
+Calling a Factory a Service or naming it `someService` is confusing.  The difference between the two is already [quite](http://stackoverflow.com/questions/14324451/angular-service-vs-angular-factory) [confusing](http://stackoverflow.com/questions/16596569/angularjs-what-is-a-factory) without mixing up the terminology.  
+
 
 
 # When introducing minification
