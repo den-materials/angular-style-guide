@@ -9,21 +9,6 @@ This styleguide is different in that it is focused on teaching & learning Angula
 # Immediate Guidelines:
 These guidelines are suggested for all code given to students.  
 
-### prefix data- on attributes and directives
-
-Use `data-` prefixed attributes instead of raw angular attributes/directives.  These pass HTML validators.
-
-Avoid:
-
-```html
- <div ng-controller="MainController as main">
-```
-Recommended:
-
-```html
- <div data-ng-controller="MainController as main">
-```
-
 ### controller as syntax
 
 Use Controller as syntax, which promotes the demystifying use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
@@ -383,6 +368,22 @@ Prefer:
 
 # Introduce eventually
 These rules should be mentioned at some point, but not right away.
+
+### prefix data- on attributes and directives
+
+Mention that `data-` can be pre-pended to `ng-` attributes.  These pass HTML validators and may help students to realize that `ng-` is not magic.
+
+This: 
+
+```html
+ <div ng-controller="MainController as mainCtrl">
+```
+Can just as easily be:
+
+```html
+ <div data-ng-controller="MainController as mainCtrl">
+```
+
 
 ### mention (but don't use) $scope in controllers
 
