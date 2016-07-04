@@ -6,28 +6,7 @@ This styleguide is different in that it is focused on teaching & learning Angula
 
 **tldr; This style-guide is aimed at students new to Angular, not angular professionals.**
 
-# Immediate Guidelines:
-These guidelines are suggested for all code given to students.  
-
-### controller as syntax
-
-Use Controller as syntax, which promotes the demystifying use of dot syntax in HTML to indicate where variables come from.  This also means it is possible to safely use scalars on the controller.  You must also avoid the use of `$scope` and use `this` instead in your controllers.
-
-Avoid:
-
-```html
-<div ng-controller="CustomerController">
-    {{ name }}
-</div>
-```
-
-Recommended:
-
-```html
-<div ng-controller="CustomerController as customer">
-    {{ customer.name }}
-</div>
-```
+# Guidelines:
 
 ### define named functions for each component
 Declare named functions for controllers and other components.
