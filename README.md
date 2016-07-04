@@ -1,10 +1,4 @@
-# Purpose
-
-There are many good styleguides already available for Angular: [here](https://github.com/toddmotto/angular-styleguide) and [here](https://github.com/johnpapa/angular-styleguide)  So, why do we need another one?
-
-This styleguide is different in that it is focused on teaching & learning Angular.  The syntax and structures advocated by other styleguides are great if you're already an Angular guru with plenty of experience, but can be extremely difficult for students new to Angular, with varying levels of JS knowledge to understand.  When we teach we generally increase complexity over time.  This guide aims to set guidelines to ensure that syntax across lessons is the same, while slowly introducing additional syntactical complexity.
-
-**tldr; This style-guide is aimed at students new to Angular, not angular professionals.**
+**tldr; This style-guide is aimed at developers new to Angular**
 
 # Guidelines
 
@@ -103,7 +97,7 @@ Use these guidelines when introducing factories and services.
 
 ### Factories vs. Services
 
-Use Services.  Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.  Services are closer to the way we teach controllers and should therefore be easier for students.  They also look similar to the way we teach constructors. :sunflower:
+Use Services.  Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.  Services are closer to the way we teach controllers and should therefore be easier for developers.  They also look similar to the way we teach constructors. :sunflower:
 
 > This does not conform with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040). which recommends Factories over Services, but Services are more similar to our controller style. Just pick one and stay consistent!
 
@@ -135,15 +129,13 @@ Calling a Factory a Service or naming it `someService` is confusing.  The differ
 
 
 # When introducing minification
-Use these rules when working with MEAN or Rails+Angular stacks or anywhere else where you might encounter minification.  They can be introduced after students have gained some familiarity with Angular.
+Use these rules when working with MEAN or Rails+Angular stacks or anywhere else where you might encounter minification.  They can be introduced after developers have gained some familiarity with Angular.
 
 ### Use $inject vs. inline annotation for dependency injection
 
 Use `$inject` vs. inline annotation.  
 
 This has better readability and lower likelihood of syntax errors.  Try to keep the `$inject` call directly above the function it refers to.  You can also align the functions parameters with the injected strings to make this more obvious.
-
-* This rule is a good one to follow from the beginning.  Students can get used to seeing it every time.
 
 ```js
 angular
