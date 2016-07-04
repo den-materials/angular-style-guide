@@ -16,9 +16,6 @@ angular
   .module('app', [])
   .controller('MainController', function MainController () {
 
-  })
-  .service('SomeFactory', function SomeFactory () {
-
   });
 ```
 
@@ -27,14 +24,10 @@ Better:
 ```js
 angular
   .module('app', [])
-  .controller('MainController', MainController)
-  .factory('SomeFactory', SomeFactory);
+  .controller('MainController', MainController);
 
 
 function MainController () {
-
-}
-function SomeFactory () {
 
 }
  ```
@@ -46,8 +39,6 @@ In general multi-line dot-chaining is more prone to error, but since we're also 
 var app = angular.module('app', []);
 app.controller('MainController', function() {
 });
-app.factory('SomeFactory', function() {
-});
 ```
 
 Better:
@@ -55,8 +46,7 @@ Better:
 ```js
 angular
   .module('app', [])
-  .controller('MainController', MainController)
-  .factory('SomeFactory', SomeFactory);
+  .controller('MainController', MainController);
 ```
 
 # Naming
@@ -120,11 +110,11 @@ Use Services.  Services and Factories are exceedingly similar and the difference
 ```js
 // factory
 function someFactory(){
-	var dataObj = {};
-	dataObj.doSomething = function(){
-		//...
-	}
-	return dataObj;
+  var dataObj = {};
+  dataObj.doSomething = function(){
+	//...
+  }
+  return dataObj;
 }
 ```
 
@@ -133,9 +123,9 @@ Better:
 ```js
 // service
 function someService() {
-	this.doSomething = function(){
-		//…
-	}
+  this.doSomething = function(){
+	//…
+  }
 }
 ```
 
