@@ -6,7 +6,7 @@ This styleguide is different in that it is focused on teaching & learning Angula
 
 **tldr; This style-guide is aimed at students new to Angular, not angular professionals.**
 
-# Guidelines:
+# Guidelines
 
 ### define named functions for each component
 Declare named functions for controllers and other components.
