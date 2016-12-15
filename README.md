@@ -97,9 +97,18 @@ Use these guidelines when introducing factories and services.
 
 ### Factories vs. Services
 
-Use Services.  Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.  Services are closer to the way we teach controllers and should therefore be easier for developers.  They also look similar to the way we teach constructors. :sunflower:
+Use Factories.  Services and Factories are exceedingly similar and the differences are very tricky.  We don't need to teach both.  This is what is recommended in [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040). In the end, what is important is that we just pick one and stay consistent!
 
-> This does not conform with [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y040). which recommends Factories over Services, but Services are more similar to our controller style. Just pick one and stay consistent!
+```js
+// service
+function someService() {
+  this.doSomething = function(){
+	//…
+  }
+}
+```
+
+Better:
 
 ```js
 // factory
@@ -109,17 +118,6 @@ function someFactory(){
 	//...
   }
   return dataObj;
-}
-```
-
-Better:
-
-```js
-// service
-function someService() {
-  this.doSomething = function(){
-	//…
-  }
 }
 ```
 
