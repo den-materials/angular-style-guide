@@ -82,7 +82,7 @@ Use these guidelines when introducing and working with directives.
 
 In general DOM manipulations should be done in directives not controllers or services.  This excludes built-ins such as `ngShow`, `ngHide`, angular animations and templates. CSS and animations can also be used independently.
 
-[code from](https://github.com/toddmotto/angular-styleguide#directives)
+[More on Directives](https://github.com/toddmotto/angular-styleguide#directives)
 
 ### Don't in-line functions in directives
 
